@@ -10,7 +10,6 @@ module.exports = {
       xl: 24,
       '2xl': 32,
     },
-
     colors: {
       'gray-900': '#121214',
       'gray-800': '#202024',

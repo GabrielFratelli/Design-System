@@ -1,5 +1,27 @@
-export function Text() {
+import { ReactNode } from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { clsx } from 'clsx';
+
+export interface TextProps {
+  size?: 'sm' | 'md' | 'lg';
+  children: ReactNode;
+  asChild?: boolean;
+}
+
+export function Text({ size = 'md', children, asChild }: TextProps) {
+  const Comp = asChild ? Slot : 'span';
   return (
-    <h1>Hello World</h1>
+    <Comp 
+    className={clsx(
+      'text-gray-100 fonts-sans', 
+      {
+      'text-xs': size === 'sm',
+      'text-sm': size === 'md',
+      'text-md': size === 'lg',
+      }
+    )}
+  >
+    {children}
+    </Comp>
   )
 }
